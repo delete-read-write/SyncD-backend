@@ -17,3 +17,6 @@ typecheck:
     uv run mypy
 
 check: lint typecheck
+
+pre-commit:
+    uv run pre-commit run --all-files
