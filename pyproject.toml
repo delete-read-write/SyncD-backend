@@ -6,7 +6,10 @@ authors = [
     { name = "D.R.W", email = "delete.read.write@gmail.com" }
 ]
 requires-python = ">=3.15"
-dependencies = []
+dependencies = [
+    "pydantic>=2.14.4",
+    "pydantic-settings>=2.16.3",
+]
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
@@ -45,3 +48,4 @@ select = [
 python_version = "3.15"
 strict = true
 files = ["src"]
+plugins = ["pydantic.mypy"]
