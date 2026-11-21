@@ -18,5 +18,7 @@ typecheck:
 
 check: lint typecheck
 
+check-ci: lint typecheck
+
 pre-commit:
     uv run pre-commit run --all-files
