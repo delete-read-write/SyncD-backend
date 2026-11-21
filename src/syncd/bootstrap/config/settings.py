@@ -24,3 +24,10 @@ class LoggingSettings(ConfigSection):
         "%(levelname)-8s - %(message)s"
     )
     datefmt: str = "%Y-%m-%d %H:%M:%S"
+
+
+class FastAPISettings(ConfigSection):
+    debug: bool = False
+    docs_url: str | None = "/docs"
+    redoc_url: str | None = "/redoc"
+    openapi_url: str | None = "/openapi"
