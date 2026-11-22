@@ -24,6 +24,9 @@ module-name = "syncd"
 dev = [
     "mypy>=2.4.1",
     "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.5.0",
+    "pytest-cov>=7.1.0",
     "ruff>=0.17.6",
 ]
 
@@ -44,6 +47,7 @@ select = [
     "C4",
     "INP001",
     "RUF",
+    "PT",
 ]
 
 [tool.mypy]
@@ -51,3 +55,19 @@ python_version = "3.15"
 strict = true
 files = ["src"]
 plugins = ["pydantic.mypy"]
+
+[tool.pytest]
+minversion = "9.0"
+strict = true
+addopts = ["--import-mode=importlib"]
+testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.run]
+source = ["syncd"]
+branch = true
+omit = ["*/syncd/bootstrap/*"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
